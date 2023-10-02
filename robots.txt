@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://vminvsky.github.io/sitemap.xml
+Sitemap: https://vminvsky.com/sitemap.xml
