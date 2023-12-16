@@ -2,7 +2,6 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
 subtitle: Intern at MPI. Research @ <a href='https://dlab.epfl.ch/'>dlab</a> and <a href='http://csslab.cs.toronto.edu/'>css lab</a>
 
 profile:
@@ -18,9 +17,9 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
 
-Welcome to my humble (jekyll built) website 👋! 
+Hello 👋! 
 
-Interested in research that connects ML methods with society.
+I'm interested in research applying recent ML techniques to better understanding society. 
 
 Currently a researcher at the Max Planck Institute where I'm analyzing internet bytes with Prof. Anja Feldmann and Prof. Ingmar Weber.
 
