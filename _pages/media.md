@@ -6,6 +6,9 @@ description: some news that's covered my research.
 nav: true
 nav_order: 1
 ---
+[New Scientist](https://www.newscientist.com/article/2420973-ai-chatbot-models-think-in-english-even-when-using-other-languages/)
+
+
 [WIRED](https://www.wired.com/story/chatgpt-is-reshaping-crowd-work/)
 
 
