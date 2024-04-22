@@ -21,8 +21,8 @@ Hello 👋!
 
 I'm interested in research applying recent ML techniques to better understanding society. 
 
-Currently a researcher at the Max Planck Institute where I'm analyzing internet bytes with Prof. Anja Feldmann and Prof. Ingmar Weber.
+This September I will be starting as a PhD working with Arvind Narayanan and Matt Salganik. Until then, I've returned to EPFL to work with Robert West and dlab. 
 
-Before moving to [Saarbrücken](https://en.wikipedia.org/wiki/Scheidt_(Saarbr%C3%BCcken)) I lived in [Lausanne](https://olympics.com/ioc/history/lausanne) for two years where I worked with Prof. Robert West. 
+Prior to returning, I spent 6 months at the Max Planck Institute in [Saarbrücken](https://en.wikipedia.org/wiki/Scheidt_(Saarbr%C3%BCcken)) analyzing internet bytes with Anja Feldmann and Ingmar Weber.
 
-Prior to that I spent four cold winters in Toronto, Canada studying math and international relations. The last two of the years I had the honour of working with Prof. Ashton Anderson, Prof. Robert Soden, and Prof. Robert Bothwell! 
+I got my undergrad in Toronto, Canada studying math and international relations. The last two of the years I had the honour of working with Ashton Anderson, Robert Soden, and Robert Bothwell! 
