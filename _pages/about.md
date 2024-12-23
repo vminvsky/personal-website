@@ -21,7 +21,7 @@ Hello 👋!
 
 I'm interested in applying and studying ML models to better understand society and individuals. 
 
-I am a PhD student in CS at Princeton working with Arvind Narayanan and Matt Salganik supported by the Gordon Wu Fellowship. Prior to coming here I sepnt a few years working with Robert West and [dlab](https://dlab.epfl.ch/) at EPFL. 
+I am a PhD student in CS at Princeton working with Arvind Narayanan, Matt Salganik, and Tom Griffiths supported by the Gordon Wu Fellowship. Prior to coming here I spent a few years working with Robert West and [dlab](https://dlab.epfl.ch/) at EPFL. 
 
 Additionally, I spent 6 months at the Max Planck Institute in [Saarbrücken](https://en.wikipedia.org/wiki/Scheidt_(Saarbr%C3%BCcken)) analyzing internet bytes with Anja Feldmann and Ingmar Weber.
 

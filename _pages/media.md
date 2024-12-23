@@ -6,10 +6,19 @@ description: some news that's covered my research.
 nav: true
 nav_order: 1
 ---
-[New Scientist](https://www.newscientist.com/article/2420973-ai-chatbot-models-think-in-english-even-when-using-other-languages/)
+[Economist](https://www.economist.com/science-and-technology/2024/02/01/ai-could-accelerate-scientific-fraud-as-well-as-progress)
+
+
+[Globe and Mail](https://www.theglobeandmail.com/business/article-ai-data-gig-workers/)
+
+
+[NYTimes Hard Fork Podcast](https://www.nytimes.com/2023/06/30/podcasts/hard-fork-ai-poison.html)
 
 
 [WIRED](https://www.wired.com/story/chatgpt-is-reshaping-crowd-work/)
+
+
+[New Scientist](https://www.newscientist.com/article/2420973-ai-chatbot-models-think-in-english-even-when-using-other-languages/)
 
 
 [Bloomberg](https://www.bloomberg.com/opinion/articles/2023-06-19/chatgpt-on-mechanical-turk-teaching-ai-with-ai-comes-with-risks)
