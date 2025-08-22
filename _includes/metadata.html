@@ -229,6 +229,16 @@
         "@type": "{%- if is_blog_post -%}BlogPosting{%- else -%}WebSite{%- endif -%}",
         "description": "{%- if page.description -%}{{ page.description }}{%- else if site.description -%}{{ site.description }}{%- endif -%}",
         "headline": "{%- if page.title -%}{{ page.title }}{%- else -%}{{ site.title }}{%- endif -%}",
+        {%- if is_blog_post -%}
+        "datePublished": "{{ page.date | date_to_xmlschema }}",
+        "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+        {% if page.og_image or site.og_image -%}
+        "image": "{%- if page.og_image -%}{{ page.og_image }}{%- else -%}{{ site.og_image }}{%- endif -%}",
+        {%- endif %}
+        {% if page.tags -%}
+        "keywords": "{{ page.tags | join: ', ' }}",
+        {%- endif %}
+        {%- endif -%}
         {% if sameaslinks != blank -%}
         "sameAs": {{ sameaslinks }},
         {%- endif %}
@@ -236,4 +246,152 @@
         "@context": "https://schema.org"
     }
     </script>
+    
+    {%- comment -%} Breadcrumbs (Home > Current page) {%- endcomment %}
+    {%- unless page.url == '/' -%}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "{{ '/' | absolute_url }}"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "{{ page.title | default: site.title }}",
+                "item": "{{ page.url | replace:'index.html','' | absolute_url }}"
+            }
+        ]
+    }
+    </script>
+    {%- endunless -%}
+
+    {%- comment -%} About/Profile page: ProfilePage + Person {%- endcomment %}
+    {%- if page.layout == 'about' or page.url == '/' -%}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "name": "{{ page.title | default: 'About' }}",
+        "url": "{{ page.url | absolute_url }}",
+        "about": {
+            "@type": "Person",
+            "name": "{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}",
+            "url": "{{ page.url | absolute_url }}",
+            {% if page.profile.image -%}
+            "image": "{{ page.profile.image | prepend: '/assets/img/' | absolute_url }}",
+            {%- endif %}
+            {% if sameaslinks != blank -%}
+            "sameAs": {{ sameaslinks }}
+            {%- endif %}
+        }
+    }
+    </script>
+    {%- endif -%}
+
+    {%- comment -%} Publications page: CollectionPage {%- endcomment %}
+    {%- if page.url == '/publications/' -%}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "{{ page.title }}",
+        "url": "{{ page.url | absolute_url }}",
+        "about": {
+            "@type": "Person",
+            "name": "{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}"
+        }
+    }
+    </script>
+    {%- endif -%}
+
+    {%- comment -%} Projects page: CollectionPage + ItemList {%- endcomment %}
+    {%- if page.url == '/projects/' -%}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "{{ page.title }}",
+        "url": "{{ page.url | absolute_url }}",
+        "hasPart": {
+            "@type": "ItemList",
+            "itemListElement": [
+            {%- assign sorted_projects = site.projects | sort: 'importance' -%}
+            {%- for project in sorted_projects -%}
+                {
+                    "@type": "ListItem",
+                    "position": {{ forloop.index }},
+                    "item": {
+                        "@type": "CreativeWork",
+                        "name": "{{ project.title }}",
+                        "url": "{{ project.url | absolute_url }}"
+                    }
+                }{%- unless forloop.last -%},{%- endunless -%}
+            {%- endfor -%}
+            ]
+        }
+    }
+    </script>
+    {%- endif -%}
+
+    {%- comment -%} Repositories page: CollectionPage + ItemList from data {%- endcomment %}
+    {%- if page.url == '/repositories/' and site.data.repositories.github_repos -%}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "{{ page.title }}",
+        "url": "{{ page.url | absolute_url }}",
+        "hasPart": {
+            "@type": "ItemList",
+            "itemListElement": [
+            {%- for repo in site.data.repositories.github_repos -%}
+                {
+                    "@type": "ListItem",
+                    "position": {{ forloop.index }},
+                    "item": {
+                        "@type": "SoftwareSourceCode",
+                        "name": "{{ repo | split: '/' | last }}",
+                        "codeRepository": "https://github.com/{{ repo }}"
+                    }
+                }{%- unless forloop.last -%},{%- endunless -%}
+            {%- endfor -%}
+            ]
+        }
+    }
+    </script>
+    {%- endif -%}
+
+    {%- comment -%} Teaching page: CollectionPage {%- endcomment %}
+    {%- if page.url == '/teaching/' -%}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "{{ page.title }}",
+        "url": "{{ page.url | absolute_url }}"
+    }
+    </script>
+    {%- endif -%}
+
+    {%- comment -%} CV page: ProfilePage referencing Person {%- endcomment %}
+    {%- if page.url == '/cv/' -%}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "name": "{{ page.title }}",
+        "url": "{{ page.url | absolute_url }}",
+        "mainEntity": {
+            "@type": "Person",
+            "name": "{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}"
+        }
+    }
+    </script>
+    {%- endif -%}
 {%- endif %}
